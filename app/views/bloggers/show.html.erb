@@ -1,0 +1,14 @@
+<h1>Bloggers#show</h1>
+
+<ul>
+<li>Name: <%= @blogger.name %></li>
+<li>Total likes: <%= @blogger.total_likes %></li>
+<li>Featured Post title: <%= link_to @blogger.featured_post.title, post_path(@blogger.featured_post) %></li>
+<li>Top 5 Destinations: 
+    <ol>
+        <% @blogger.top_5_destinations.each do |d| %>
+            <li><%=link_to d.name, destination_path(d) %>, <%= d.country %>, <%= d.posts.size %></li>
+        <% end %>
+    <ol>
+</li>
+<ul>
